@@ -1,0 +1,25 @@
+:root { color-scheme: dark; font-family: Inter, system-ui, sans-serif; background: #11131a; color: #f7f4ef; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: radial-gradient(circle at top right, #313a67, transparent 42%), #11131a; }
+.app-shell { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0; }
+header { margin-bottom: 30px; }
+.eyebrow { color: #a8b6ff; font-size: .74rem; font-weight: 800; letter-spacing: .16em; margin: 0 0 8px; }
+h1 { font-size: clamp(2rem, 5vw, 3.4rem); margin: 0; letter-spacing: -.06em; }
+.intro { color: #b9bdc9; margin: 12px 0 0; }
+.workspace { display: grid; grid-template-columns: 250px 1fr; gap: 18px; }
+.controls, .canvas-card { background: rgba(28, 31, 43, .9); border: 1px solid #3a4057; border-radius: 18px; }
+.controls { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.controls label:not(.upload-button) { font-size: .88rem; font-weight: 700; display: flex; justify-content: space-between; gap: 8px; }
+output { color: #c1caff; }
+input[type="file"] { display: none; }
+input[type="range"] { accent-color: #8a9cff; width: 100%; margin-top: -8px; }
+.upload-button, button { border: 0; border-radius: 10px; cursor: pointer; font: inherit; font-weight: 800; padding: 12px 14px; text-align: center; }
+.upload-button { background: #eff1ff; color: #20243a; }
+button { background: #6578f5; color: white; }
+button:disabled { cursor: not-allowed; opacity: .45; }
+.check-row { align-items: center; justify-content: flex-start !important; }
+.check-row input { accent-color: #8a9cff; }
+.status { border-top: 1px solid #3a4057; color: #aeb4c6; font-size: .78rem; line-height: 1.4; margin: 0; padding-top: 14px; }
+.canvas-card { align-items: center; display: flex; justify-content: center; min-height: 480px; overflow: hidden; padding: 18px; }
+canvas { background-color: #1e2230; background-image: linear-gradient(45deg, #252a3c 25%, transparent 25%), linear-gradient(-45deg, #252a3c 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #252a3c 75%), linear-gradient(-45deg, transparent 75%, #252a3c 75%); background-size: 24px 24px; background-position: 0 0, 0 12px, 12px -12px, -12px 0; max-height: 68vh; max-width: 100%; object-fit: contain; }
+@media (max-width: 720px) { .app-shell { padding: 30px 0; } .workspace { grid-template-columns: 1fr; } .canvas-card { min-height: 300px; } }

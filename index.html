@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#11131a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <title>사진 도트 그래픽</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <p class="eyebrow">PIXEL ART MAKER</p>
+        <h1>사진을 도트 그래픽으로</h1>
+        <p class="intro">사진을 선택하고 도트 크기와 색상 수를 조절한 뒤 PNG로 저장하세요.</p>
+      </header>
+
+      <section class="workspace" aria-label="도트 그래픽 편집기">
+        <aside class="controls">
+          <label class="upload-button" for="imageInput">사진 선택</label>
+          <input id="imageInput" type="file" accept="image/*" />
+
+          <label for="pixelSize">도트 크기 <output id="pixelSizeValue">10</output>px</label>
+          <input id="pixelSize" type="range" min="2" max="40" value="10" />
+
+          <label for="colorCount">색상 단계 <output id="colorCountValue">32</output>단계/채널</label>
+          <input id="colorCount" type="range" min="2" max="64" value="32" />
+
+          <label class="check-row" for="grayscaleToggle">
+            <input id="grayscaleToggle" type="checkbox" />
+            &#55121;&#48177;&#51004;&#47196; &#48320;&#54872;
+          </label>
+
+          <label class="check-row" for="gridToggle">
+            <input id="gridToggle" type="checkbox" />
+            도트 격자 표시
+          </label>
+
+          <button id="downloadButton" type="button" disabled>PNG 저장</button>
+          <p id="status" class="status" role="status">사진을 선택해 시작하세요.</p>
+        </aside>
+
+        <div class="canvas-card">
+          <canvas id="preview" width="800" height="600" aria-label="도트 그래픽 미리보기"></canvas>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js');
+      }
+    </script>
+  </body>
+</html>
